@@ -6,9 +6,361 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | No-KYC Casino Reference</title>
     <meta name="description"
-        content="Learn more about the team behind No-KYC Casino Reference and our mission to uncover the best anonymous casino sites.">
+        content="Meet the team behind No-KYC Casino Reference — iGaming experts, crypto specialists, and regulatory professionals helping you find the best anonymous casino sites.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* ── Team Section ───────────────────────────────── */
+        .team-section {
+            padding: 5rem 0;
+            background: var(--background-white);
+        }
+
+        .team-intro {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 4rem;
+        }
+
+        .team-intro .section-badge {
+            display: inline-block;
+            background: rgba(255, 90, 0, 0.1);
+            color: var(--primary-orange);
+            font-weight: 600;
+            font-size: 0.875rem;
+            padding: 0.3rem 0.875rem;
+            border-radius: var(--radius-full);
+            margin-bottom: 1rem;
+        }
+
+        .team-intro h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+
+        .team-intro p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* ── Member Card ─────────────────────────────────── */
+        .member-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border-color);
+            margin-bottom: 3.5rem;
+            background: var(--background-white);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .member-card:hover {
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.11), 0 4px 12px rgba(0, 0, 0, 0.06);
+            transform: translateY(-3px);
+        }
+
+        /* Photo column */
+        .member-photo-col {
+            position: relative;
+            overflow: hidden;
+            min-height: 420px;
+        }
+
+        .member-photo-col img,
+        .member-photo-col .member-initials-avatar {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .member-card:hover .member-photo-col img,
+        .member-card:hover .member-initials-avatar {
+            transform: scale(1.04);
+        }
+
+        .member-initials-avatar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.05em;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        }
+
+        .member-photo-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.55) 100%);
+            z-index: 1;
+        }
+
+        .member-photo-name-link {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            z-index: 2;
+            text-decoration: none;
+        }
+
+        .member-photo-name-link h3 {
+            margin: 0 0 0.25rem;
+            font-size: 1.5rem;
+            color: white;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+            transition: color 0.2s;
+        }
+
+        .member-photo-name-link:hover h3 {
+            color: #ffd6b5;
+        }
+
+        .member-role-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+        }
+
+        /* Content column */
+        .member-content-col {
+            padding: 2.5rem 2.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .member-role {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            margin-bottom: 1rem;
+        }
+
+        .member-bio {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Facts grid */
+        .member-facts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .fact-chip {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            background: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 0.65rem 0.875rem;
+        }
+
+        .fact-chip-icon {
+            font-size: 1rem;
+            flex-shrink: 0;
+            line-height: 1.5;
+        }
+
+        .fact-chip-text {
+            font-size: 0.825rem;
+        }
+
+        .fact-chip-text strong {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.1rem;
+        }
+
+        .fact-chip-text span {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* Expertise tags */
+        .member-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 2rem;
+        }
+
+        .member-tag {
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.25rem 0.65rem;
+            border-radius: var(--radius-full);
+            border: 1px solid;
+        }
+
+        .tag-orange {
+            background: rgba(255, 90, 0, 0.08);
+            color: var(--primary-orange);
+            border-color: rgba(255, 90, 0, 0.2);
+        }
+
+        .tag-green {
+            background: rgba(0, 163, 74, 0.08);
+            color: var(--success-green);
+            border-color: rgba(0, 163, 74, 0.2);
+        }
+
+        .tag-indigo {
+            background: rgba(99, 102, 241, 0.08);
+            color: #6366f1;
+            border-color: rgba(99, 102, 241, 0.2);
+        }
+
+        .member-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: gap 0.2s ease;
+        }
+
+        .member-cta:hover {
+            gap: 0.75rem;
+        }
+
+        /* Reversed layout (photo on right) */
+        .member-card.reversed .member-photo-col {
+            order: 2;
+        }
+
+        .member-card.reversed .member-content-col {
+            order: 1;
+        }
+
+        /* Stats row inside content */
+        .member-stats-row {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .member-stat {
+            text-align: center;
+        }
+
+        .member-stat .num {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.1;
+        }
+
+        .member-stat .lbl {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── About Mission strip ──────────────────────────── */
+        .mission-strip {
+            background: linear-gradient(135deg, var(--background-light) 0%, #fff 100%);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 4rem 0;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .mission-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .mission-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .mission-item h3 {
+            font-size: 1.1rem;
+            margin: 0 0 0.5rem;
+        }
+
+        .mission-item p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* ── Responsive ──────────────────────────────────── */
+        @media (max-width: 900px) {
+
+            .member-card,
+            .member-card.reversed {
+                grid-template-columns: 1fr;
+            }
+
+            .member-card .member-photo-col,
+            .member-card.reversed .member-photo-col {
+                order: 0;
+                min-height: 300px;
+            }
+
+            .member-card .member-content-col,
+            .member-card.reversed .member-content-col {
+                order: 1;
+            }
+
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .member-facts {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .member-content-col {
+                padding: 1.75rem 1.5rem;
+            }
+
+            .member-stats-row {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -28,80 +380,409 @@
             <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
         </div>
     </header>
+
     <main>
-        <section class="hero" style="padding-bottom: 6rem;">
+        <!-- Hero -->
+        <section class="hero" style="padding-bottom: 5rem;">
             <div class="container">
-                <div class="breadcrumbs" style="justify-content: center; display: flex;">
+                <div class="breadcrumbs" style="justify-content: center; display: flex; margin-bottom: 2rem;">
                     <a href="../index.html">Home</a> &nbsp;&rsaquo;&nbsp; <span>About Us</span>
+                </div>
+                <span class="hero-subtitle">Trusted Since 2020</span>
+                <h1>About Us</h1>
+                <p>We are a dedicated team of iGaming experts, crypto specialists, and regulatory professionals
+                    committed to helping you find the best anonymous casino experiences — safely, honestly, and
+                    independently.</p>
+            </div>
+        </section>
+
+        <!-- Mission Strip -->
+        <section class="mission-strip">
+            <div class="container">
+                <div class="mission-grid">
+                    <div class="mission-item">
+                        <span class="mission-icon">🔍</span>
+                        <h3>Independent Reviews</h3>
+                        <p>We deposit real money and test withdrawals personally. Every rating reflects genuine hands-on
+                            experience&nbsp;— not marketing copy.</p>
+                    </div>
+                    <div class="mission-item">
+                        <span class="mission-icon">🔒</span>
+                        <h3>Privacy First</h3>
+                        <p>We only recommend casinos that respect your right to privacy. No unnecessary KYC means more
+                            freedom for you.</p>
+                    </div>
+                    <div class="mission-item">
+                        <span class="mission-icon">⚡</span>
+                        <h3>Speed &amp; Transparency</h3>
+                        <p>Fast crypto payouts and clear bonus terms are non-negotiable. We verify both before any
+                            casino earns our recommendation.</p>
+                    </div>
                 </div>
             </div>
         </section>
-        <article class="content-area" style="padding-top: 2rem;">
-            <div class="container content-wrapper">
-                <div class="main-content" style="max-width: 800px; margin: 0 auto; padding: 2rem;">
-                    <h1 style="text-align: center; margin-bottom: 2rem;">About Us</h1>
-                    <p style="font-size: 1.125rem; line-height: 1.6;">Welcome to <strong>No-KYC Casino
-                            Reference</strong>, the ultimate guide for players who value their privacy, fast payouts,
-                        and the freedom of crypto gambling.</p>
-                    <h2 style="margin-top: 2rem;">Our Mission</h2>
-                    <p>Our goal is to help you navigate the growing world of No-KYC online casinos safely. We believe
-                        that gambling should be a personal experience, and the requirement to constantly prove your
-                        identity can feel invasive. We scour the internet to find trusted online casinos that allow you
-                        to sign up, deposit, and withdraw without restrictive Know Your Customer (KYC) checks.</p>
-                    <h2 style="margin-top: 2rem;">Who We Are</h2>
-                    <p>We are a dedicated team of iGaming experts, crypto enthusiasts, and seasoned gamblers. We
-                        understand the thrill of a big win and the frustration of waiting days for a withdrawal or
-                        navigating endless document verifications. Our experts have years of experience testing casinos,
-                        verifying licenses, and confirming payout speeds to ensure you get the best possible experience.
-                    </p>
-                    <h2 style="margin-top: 2rem;">Why Trust Us?</h2>
-                    <ul>
-                        <li><strong>Independent Reviews:</strong> We play on the sites we review, making actual deposits
-                            and withdrawals.</li>
-                        <li><strong>Player Data Privacy:</strong> We prioritize platforms that treat your personal
-                            information with respect.</li>
-                        <li><strong>Focus on Speed:</strong> We only recommend casinos that process crypto payments
-                            swiftly and efficiently.</li>
-                    </ul>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="container">
+                <div class="team-intro">
+                    <span class="section-badge">Meet the Team</span>
+                    <h2>The Experts Behind Our Reviews</h2>
+                    <p>Our team combines decades of iGaming, crypto finance, and regulatory expertise to deliver reviews
+                        you can genuinely trust.</p>
                 </div>
+
+                <!-- ── Member 1: Alex Mitchell — Photo LEFT ── -->
+                <article class="member-card">
+                    <div class="member-photo-col">
+                        <img src="../images/alex-mitchell.webp" alt="Alex Mitchell – Senior Casino Analyst">
+                        <div class="member-photo-overlay"></div>
+                        <a href="../authors/alex-mitchell/index.html" class="member-photo-name-link">
+                            <h3>Alex Mitchell</h3>
+                            <span class="member-role-badge">Senior Casino Analyst &amp; Founder</span>
+                        </a>
+                    </div>
+                    <div class="member-content-col">
+                        <span class="member-role" style="color: var(--primary-orange);">Founder &amp; Senior Casino
+                            Analyst</span>
+
+                        <div class="member-stats-row">
+                            <div class="member-stat">
+                                <span class="num">10+</span>
+                                <span class="lbl">Yrs Experience</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="num">200+</span>
+                                <span class="lbl">Casinos Reviewed</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="num">50+</span>
+                                <span class="lbl">Crypto Platforms</span>
+                            </div>
+                        </div>
+
+                        <p class="member-bio">Alex is the founder of No-KYC Casino Reference. His personal frustration
+                            with invasive KYC checks led him to build this platform. He leads all casino testing —
+                            making real deposits, testing withdrawals, and verifying every licence personally before any
+                            review goes live.</p>
+
+                        <div class="member-tags">
+                            <span class="member-tag tag-orange">No-KYC Casinos</span>
+                            <span class="member-tag tag-orange">Crypto Payments</span>
+                            <span class="member-tag tag-orange">Casino Licensing</span>
+                            <span class="member-tag tag-orange">Blockchain</span>
+                            <span class="member-tag tag-orange">Live Blackjack</span>
+                        </div>
+
+                        <div class="member-facts">
+                            <div class="fact-chip">
+                                <span class="fact-chip-icon">📍</span>
+                                <div class="fact-chip-text">
+                                    <strong>Location</strong>
+                                    <span>Dublin, Ireland</span>
+                                </div>
+                            </div>
+                            <div class="fact-chip">
+                                <span class="fact-chip-icon">🎓</span>
+                                <div class="fact-chip-text">
+                                    <strong>Education</strong>
+                                    <span>BSc Computer Science, UCD</span>
+                                </div>
+                            </div>
+                            <div class="fact-chip">
+                                <span class="fact-chip-icon">₿</span>
+                                <div class="fact-chip-text">
+                                    <strong>Favourite Crypto</strong>
+                                    <span>Bitcoin &amp; Monero</span>
+                                </div>
+                            </div>
+                            <div class="fact-chip">
+                                <span class="fact-chip-icon">⚡</span>
+                                <div class="fact-chip-text">
+                                    <strong>Fastest Withdrawal</strong>
+                                    <span>4 min (crypto)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="../authors/alex-mitchell/index.html" class="member-cta"
+                            style="color: var(--primary-orange);">
+                            Full Profile &amp; Articles <span>→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- ── Member 2: Sarah Jenkins — Photo RIGHT ── -->
+                <article class="member-card reversed">
+                    <div class="member-photo-col">
+                        <img src="../images/Sarah-Jenkins.webp" alt="Sarah Jenkins – Crypto & Bonus Specialist">
+                        <div class="member-photo-overlay"></div>
+                        <a href="../authors/sarah-jenkins/index.html" class="member-photo-name-link">
+                            <h3>Sarah Jenkins</h3>
+                            <span class="member-role-badge">Crypto &amp; Bonus Specialist</span>
+                        </a>
+                    </div>
+                    <div class="member-content-col">
+                        <span class="member-role" style="color: var(--success-green);">Crypto &amp; Bonus
+                            Specialist</span>
+
+                        <div class="member-stats-row">
+                            <div class="member-stat">
+                                <span class="num">7+</span>
+                                <span class="lbl">Yrs Experience</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="num">500+</span>
+                                <span class="lbl">Bonuses Tested</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="num">30+</span>
+                                <span class="lbl">Cryptos Evaluated</span>
+                            </div>
+                        </div>
+
+                        <p class="member-bio">Sarah came from a DeFi and fintech background and now specialises in two
+                            things: spotting great bonus offers and exposing terrible ones. She personally claims every
+                            bonus before writing about it and tracks 12 separate metrics to ensure our recommendations
+                            are genuinely profitable for real players.</p>
+
+                        <div class="member-tags">
+                            <span class="member-tag tag-green">No-Deposit Bonuses</span>
+                            <span class="member-tag tag-green">Free Spins</span>
+                            <span class="member-tag tag-green">DeFi &amp; Web3</span>
+                            <span class="member-tag tag-green">Stablecoins</span>
+                            <span class="member-tag tag-green">Wagering Terms</span>
+                        </div>
+
+                        <div class="member-facts">
+                            <div class="fact-chip">
+                                <span class="fact-chip-icon">📍</span>
+                                <div class="fact-chip-text">
+                                    <strong>Location</strong>
+                                    <span>Cork, Ireland</span>
+                                </div>
+                            </div>
+                            <div class="fact-chip">
+                                <span class="fact-chip-icon">🎓</span>
+                                <div class="fact-chip-text">
+                                    <strong>Education</strong>
+                                    <span>MSc Finance &amp; DeFi, UCC</span>
+                                </div>
+                            </div>
+                            <div class="fact-chip">
+                                <span class="fact-chip-icon">₿</span>
+                                <div class="fact-chip-text">
+                                    <strong>Favourite Crypto</strong>
+                                    <span>USDT &amp; Ethereum</span>
+                                </div>
+                            </div>
+                            <div class="fact-chip">
+                                <span class="fact-chip-icon">🏆</span>
+                                <div class="fact-chip-text">
+                                    <strong>Biggest Bonus Win</strong>
+                                    <span>&euro;2,400 from free spins</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="../authors/sarah-jenkins/index.html" class="member-cta"
+                            style="color: var(--success-green);">
+                            Full Profile &amp; Articles <span>→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- ── Member 3: Liam O'Reilly — Photo LEFT ── -->
+                <article class="member-card">
+                    <div class="member-photo-col">
+                        <div class="member-initials-avatar">LO</div>
+                        <div class="member-photo-overlay"></div>
+                        <a href="../authors/liam-oreilly/index.html" class="member-photo-name-link">
+                            <h3>Liam O'Reilly</h3>
+                            <span class="member-role-badge">Licensing &amp; RG Expert</span>
+                        </a>
+                    </div>
+                    <div class="member-content-col">
+                        <span class="member-role" style="color: #6366f1;">Licensing &amp; Responsible Gambling
+                            Expert</span>
+
+                        <div class="member-stats-row">
+                            <div class="member-stat">
+                                <span class="num">12+</span>
+                                <span class="lbl">Yrs Experience</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="num">15+</span>
+                                <span class="lbl">Jurisdictions</span>
+                            </div>
+                            <div class="member-stat">
+                                <span class="num">100+</span>
+                                <span class="lbl">Licences Verified</span>
+                            </div>
+                        </div>
+
+                        <p class="member-bio">A former MGA regulatory consultant, Liam is our licensing authority. He
+                            applies a rigorous 5-point verification protocol to every casino we review — directly
+                            querying regulator databases, checking for sanctions, and confirming that responsible
+                            gambling tools are genuinely functional and accessible.</p>
+
+                        <div class="member-tags">
+                            <span class="member-tag tag-indigo">EU Gambling Law</span>
+                            <span class="member-tag tag-indigo">MGA Licensing</span>
+                            <span class="member-tag tag-indigo">Player Protection</span>
+                            <span class="member-tag tag-indigo">AML Compliance</span>
+                            <span class="member-tag tag-indigo">Dispute Resolution</span>
+                        </div>
+
+                        <div class="member-facts">
+                            <div class="fact-chip">
+                                <span class="fact-chip-icon">📍</span>
+                                <div class="fact-chip-text">
+                                    <strong>Location</strong>
+                                    <span>Galway, Ireland</span>
+                                </div>
+                            </div>
+                            <div class="fact-chip">
+                                <span class="fact-chip-icon">🎓</span>
+                                <div class="fact-chip-text">
+                                    <strong>Education</strong>
+                                    <span>LLM EU Law, NUI Galway</span>
+                                </div>
+                            </div>
+                            <div class="fact-chip">
+                                <span class="fact-chip-icon">⚖️</span>
+                                <div class="fact-chip-text">
+                                    <strong>Former Role</strong>
+                                    <span>MGA Advisory Panel</span>
+                                </div>
+                            </div>
+                            <div class="fact-chip">
+                                <span class="fact-chip-icon">🔍</span>
+                                <div class="fact-chip-text">
+                                    <strong>Verified in 2025</strong>
+                                    <span>38 casino licences</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="../authors/liam-oreilly/index.html" class="member-cta" style="color: #6366f1;">
+                            Full Profile &amp; Articles <span>→</span>
+                        </a>
+                    </div>
+                </article>
+
             </div>
-        </article>
+        </section>
+
+        <!-- Why Trust Us -->
+        <section
+            style="padding: 4rem 0; background: var(--background-light); border-top: 1px solid var(--border-color);">
+            <div class="container" style="max-width: 800px;">
+                <h2 style="text-align: center; margin-top: 0;">Why Trust No-KYC Casino Reference?</h2>
+                <ul
+                    style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem;">
+                    <li
+                        style="display: flex; align-items: flex-start; gap: 1rem; background: var(--background-white); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem 1.5rem;">
+                        <span style="font-size: 1.5rem;">✅</span>
+                        <div>
+                            <strong style="display: block; margin-bottom: 0.25rem; color: var(--text-main);">Independent
+                                Reviews</strong>
+                            <span style="color: var(--text-muted); font-size: 0.95rem;">We make actual deposits and
+                                withdrawals on every casino we review. Our ratings reflect real player experiences, not
+                                casino PR materials.</span>
+                        </div>
+                    </li>
+                    <li
+                        style="display: flex; align-items: flex-start; gap: 1rem; background: var(--background-white); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem 1.5rem;">
+                        <span style="font-size: 1.5rem;">🔐</span>
+                        <div>
+                            <strong style="display: block; margin-bottom: 0.25rem; color: var(--text-main);">Player Data
+                                Privacy</strong>
+                            <span style="color: var(--text-muted); font-size: 0.95rem;">We only recommend platforms that
+                                respect your personal information and avoid unnecessary identity verification
+                                procedures.</span>
+                        </div>
+                    </li>
+                    <li
+                        style="display: flex; align-items: flex-start; gap: 1rem; background: var(--background-white); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem 1.5rem;">
+                        <span style="font-size: 1.5rem;">⚡</span>
+                        <div>
+                            <strong style="display: block; margin-bottom: 0.25rem; color: var(--text-main);">Focus on
+                                Speed</strong>
+                            <span style="color: var(--text-muted); font-size: 0.95rem;">We only recommend casinos that
+                                process crypto payments swiftly and efficiently — no days-long waits for your
+                                winnings.</span>
+                        </div>
+                    </li>
+                    <li
+                        style="display: flex; align-items: flex-start; gap: 1rem; background: var(--background-white); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem 1.5rem;">
+                        <span style="font-size: 1.5rem;">⚖️</span>
+                        <div>
+                            <strong style="display: block; margin-bottom: 0.25rem; color: var(--text-main);">Verified
+                                Licences</strong>
+                            <span style="color: var(--text-muted); font-size: 0.95rem;">Every casino's licence is
+                                independently verified against the issuing regulator's live database before we publish a
+                                review.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </main>
+
     <!-- Footer -->
-    <footer class="site-footer" style="padding: 4rem 0 2rem; background: var(--bg-card); border-top: 1px solid var(--border-color);">
+    <footer class="site-footer"
+        style="padding: 4rem 0 2rem; background: var(--bg-card); border-top: 1px solid var(--border-color);">
         <div class="container">
-            <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+            <div class="footer-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
                 <div class="footer-col">
-                    <h4 style="color: var(--text-heading); margin-bottom: 1.5rem;">Top Casinos</h4>
+                    <h4 style="color: var(--background-white); margin-bottom: 1.5rem;">Top Casinos</h4>
                     <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;">
-                        <li><a href="../reviews/justbit-casino/index.html" style="color: var(--text-muted); text-decoration: none;">JustBit Casino</a></li>
-                        <li><a href="../reviews/22bet-casino/index.html" style="color: var(--text-muted); text-decoration: none;">22Bet Casino</a></li>
-                        <li><a href="../reviews/national-casino/index.html" style="color: var(--text-muted); text-decoration: none;">National Casino</a></li>
-                        <li><a href="../reviews/5Gringos-casino/index.html" style="color: var(--text-muted); text-decoration: none;">5Gringos Casino</a></li>
-                        <li><a href="../reviews/bethall-casino/index.html" style="color: var(--text-muted); text-decoration: none;">Bethall Casino</a></li>
-                        <li><a href="../reviews/index.html" style="color: var(--primary); text-decoration: none;">All Casino Reviews &rarr;</a></li>
+                        <li><a href="../reviews/justbit-casino/index.html"
+                                style="color: var(--text-muted); text-decoration: none;">JustBit Casino</a></li>
+                        <li><a href="../reviews/22bet-casino/index.html"
+                                style="color: var(--text-muted); text-decoration: none;">22Bet Casino</a></li>
+                        <li><a href="../reviews/national-casino/index.html"
+                                style="color: var(--text-muted); text-decoration: none;">National Casino</a></li>
+                        <li><a href="../reviews/5Gringos-casino/index.html"
+                                style="color: var(--text-muted); text-decoration: none;">5Gringos Casino</a></li>
+                        <li><a href="../reviews/bethall-casino/index.html"
+                                style="color: var(--text-muted); text-decoration: none;">Bethall Casino</a></li>
+                        <li><a href="../reviews/index.html"
+                                style="color: var(--primary-orange); text-decoration: none;">All Casino Reviews
+                                &rarr;</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4 style="color: var(--text-heading); margin-bottom: 1.5rem;">Quick Links</h4>
+                    <h4 style="color: var(--background-white); margin-bottom: 1.5rem;">Quick Links</h4>
                     <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;">
-                        <li><a href="../crypto-casino/index.html" style="color: var(--text-muted); text-decoration: none;">Crypto Casino No KYC</a></li>
-                        <li><a href="../no-deposit-bonus/index.html" style="color: var(--text-muted); text-decoration: none;">No Deposit Bonus</a></li>
-                        <li><a href="../free-spins/index.html" style="color: var(--text-muted); text-decoration: none;">Free Spins</a></li>
-                        <li><a href="../instant-withdrawal/index.html" style="color: var(--text-muted); text-decoration: none;">Instant Withdrawal</a></li>
-                        <li><a href="../how-experts-rate-casinos/index.html" style="color: var(--text-muted); text-decoration: none;">How Experts Rate Casinos</a></li>
+                        <li><a href="../crypto-casino/index.html"
+                                style="color: var(--text-muted); text-decoration: none;">Crypto Casino No KYC</a></li>
+                        <li><a href="../no-deposit-bonus/index.html"
+                                style="color: var(--text-muted); text-decoration: none;">No Deposit Bonus</a></li>
+                        <li><a href="../free-spins/index.html"
+                                style="color: var(--text-muted); text-decoration: none;">Free Spins</a></li>
+                        <li><a href="../instant-withdrawal/index.html"
+                                style="color: var(--text-muted); text-decoration: none;">Instant Withdrawal</a></li>
+                        <li><a href="../how-experts-rate-casinos/index.html"
+                                style="color: var(--text-muted); text-decoration: none;">How Experts Rate Casinos</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4 style="color: var(--text-heading); margin-bottom: 1.5rem;">Company</h4>
+                    <h4 style="color: var(--background-white); margin-bottom: 1.5rem;">Company</h4>
                     <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;">
-                        <li><a href="../about-us/index.html" style="color: var(--text-muted); text-decoration: none;">About Us</a></li>
-                        <li><a href="#" style="color: var(--text-muted); text-decoration: none;">Terms of Service</a></li>
+                        <li><a href="../about-us/index.html"
+                                style="color: var(--text-muted); text-decoration: none;">About Us</a></li>
+                        <li><a href="#" style="color: var(--text-muted); text-decoration: none;">Terms of Service</a>
+                        </li>
                         <li><a href="#" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom" style="border-top: 1px solid var(--border-color); padding-top: 2rem; text-align: center; color: var(--text-muted); font-size: 0.875rem;">
+            <div class="footer-bottom"
+                style="border-top: 1px solid var(--border-color); padding-top: 2rem; text-align: center; color: var(--text-muted); font-size: 0.875rem;">
                 &copy; 2026 No-KYC Casino Reference. All rights reserved.
             </div>
         </div>

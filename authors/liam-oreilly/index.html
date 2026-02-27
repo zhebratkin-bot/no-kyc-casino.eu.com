@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en-IE">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liam O'Reilly – Licensing &amp; Responsible Gambling Expert | No-KYC Casino Reference</title>
+    <meta name="description"
+        content="Meet Liam O'Reilly, Licensing & Responsible Gambling Expert at No-KYC Casino Reference. Former regulatory consultant with deep expertise in EU gambling law and player protection.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .author-hero {
+            padding: 4rem 0 6rem;
+            background:
+                radial-gradient(circle at top right, rgba(99, 102, 241, 0.07), transparent 50%),
+                radial-gradient(circle at bottom left, rgba(255, 90, 0, 0.04), transparent 50%),
+                linear-gradient(180deg, var(--background-white) 0%, var(--background-light) 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .author-profile {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .author-photo-wrap {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .author-photo-large {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--background-white);
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15), 0 2px 8px rgba(0, 0, 0, 0.08);
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-initials {
+            font-size: 5rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.05em;
+        }
+
+        .author-badge {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: #6366f1;
+            color: white;
+            border-radius: var(--radius-full);
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 2px solid var(--background-white);
+        }
+
+        .author-hero-info h1 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-role {
+            color: #6366f1;
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .author-hero-info p {
+            max-width: 560px;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .author-stats {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .author-content-section {
+            padding: 4rem 0;
+            background: var(--background-white);
+        }
+
+        .author-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .expertise-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0 1.5rem;
+            list-style: none;
+            padding: 0;
+        }
+
+        .expertise-tag {
+            background: rgba(99, 102, 241, 0.08);
+            color: #6366f1;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: var(--radius-full);
+            padding: 0.35rem 0.875rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .facts-card {
+            background: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            position: sticky;
+            top: calc(var(--header-height) + 2rem);
+        }
+
+        .facts-card h3 {
+            margin-top: 0;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .fact-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .fact-row:last-child {
+            border-bottom: none;
+        }
+
+        .fact-icon {
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            width: 28px;
+        }
+
+        .fact-text {
+            flex: 1;
+        }
+
+        .fact-text strong {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 0.15rem;
+        }
+
+        .fact-text span {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .author-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .author-stats {
+                justify-content: center;
+            }
+
+            .author-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .facts-card {
+                position: static;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header" style="position: static;">
+        <div class="container justify-between flex items-center" style="width: 100%;">
+            <a href="../../index.html" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+                <img src="../../images/logo.webp" alt="Site Logo" class="header-logo"
+                    onerror="this.style.display='none'">
+                <span class="logo-text">No-KYC<span>Casino</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="../../crypto-casino/index.html">Crypto Casino No KYC</a>
+                <a href="../../no-deposit-bonus/index.html">No Deposit Bonus</a>
+                <a href="../../free-spins/index.html">Free Spins</a>
+                <a href="../../instant-withdrawal/index.html">Instant Withdrawal</a>
+            </nav>
+            <a href="../../index.html#showcase" class="btn btn-primary">Best No-KYC Casinos</a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main>
+        <section class="author-hero">
+            <div class="container">
+                <div class="breadcrumbs" style="margin-bottom: 2rem;">
+                    <a href="../../index.html">Home</a> &nbsp;&rsaquo;&nbsp;
+                    <a href="../../about-us/index.html">About Us</a> &nbsp;&rsaquo;&nbsp;
+                    <span>Liam O'Reilly</span>
+                </div>
+                <div class="author-profile">
+                    <div class="author-photo-wrap">
+                        <div class="author-photo-large">
+                            <span class="author-initials">LO</span>
+                        </div>
+                        <span class="author-badge">✓ Verified Expert</span>
+                    </div>
+                    <div class="author-hero-info">
+                        <h1>Liam O'Reilly</h1>
+                        <span class="author-role">Licensing &amp; Responsible Gambling Expert</span>
+                        <p>A former regulatory consultant with 12 years in EU gambling law, Liam is our authority on
+                            licensing authenticity, responsible gambling frameworks, and player protection compliance
+                            across European jurisdictions.</p>
+                        <div class="author-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">12+</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">15+</span>
+                                <span class="stat-label">Jurisdictions Covered</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100+</span>
+                                <span class="stat-label">Licences Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="author-content-section">
+            <div class="container">
+                <div class="author-grid">
+                    <div class="author-main">
+                        <h2 style="margin-top: 0;">About Liam</h2>
+                        <p>Liam O'Reilly spent over a decade working as a regulatory consultant for gaming commissions
+                            and government bodies across the EU. He has advised licensing authorities in Malta,
+                            Gibraltar, and the Isle of Man, and was part of the committee that drafted updated player
+                            protection guidelines for the MGA in 2019.</p>
+                        <p>After leaving the regulatory world, Liam brought his insider knowledge to the consumer side.
+                            He joined No-KYC Casino Reference in 2022 with a single mandate: ensure that every casino we
+                            recommend holds a genuine, active licence and meets the minimum standards for responsible
+                            gambling.</p>
+                        <p>Liam's most valuable contribution is our licence verification process — which goes far beyond
+                            simply displaying a licence number. He directly queries regulator databases, checks for
+                            active enforcement actions, and evaluates whether the casino's advertised protections match
+                            what regulators actually require of them.</p>
+
+                        <h3>Areas of Expertise</h3>
+                        <ul class="expertise-list">
+                            <li class="expertise-tag">EU Gambling Law</li>
+                            <li class="expertise-tag">MGA Licensing</li>
+                            <li class="expertise-tag">Curacao eGaming</li>
+                            <li class="expertise-tag">Responsible Gambling</li>
+                            <li class="expertise-tag">Player Protection</li>
+                            <li class="expertise-tag">AML Compliance</li>
+                            <li class="expertise-tag">Dispute Resolution</li>
+                            <li class="expertise-tag">Regulatory Audits</li>
+                        </ul>
+
+                        <h3>Verification Standards</h3>
+                        <p>Liam applies a 5-point licence verification protocol to every casino reviewed on the site:
+                            (1) Confirm the licence is active via the issuing regulator's public lookup tool; (2)
+                            Cross-check licence holder against the casino operator name; (3) Verify the licence scope
+                            covers the player's jurisdiction; (4) Review any outstanding enforcement actions or
+                            sanctions; (5) Confirm responsible gambling tools are functional and prominently displayed.
+                        </p>
+                        <p>If a casino fails any of these checks, it will not appear in our recommended lists regardless
+                            of its other qualities.</p>
+                    </div>
+
+                    <aside>
+                        <div class="facts-card">
+                            <h3>Quick Facts</h3>
+                            <div class="fact-row">
+                                <span class="fact-icon">📍</span>
+                                <div class="fact-text">
+                                    <strong>Location</strong>
+                                    <span>Galway, Ireland</span>
+                                </div>
+                            </div>
+                            <div class="fact-row">
+                                <span class="fact-icon">🎓</span>
+                                <div class="fact-text">
+                                    <strong>Education</strong>
+                                    <span>LLM EU Law, NUI Galway</span>
+                                </div>
+                            </div>
+                            <div class="fact-row">
+                                <span class="fact-icon">💼</span>
+                                <div class="fact-text">
+                                    <strong>Role</strong>
+                                    <span>Licensing &amp; RG Expert</span>
+                                </div>
+                            </div>
+                            <div class="fact-row">
+                                <span class="fact-icon">📅</span>
+                                <div class="fact-text">
+                                    <strong>At No-KYC Casino Since</strong>
+                                    <span>2022</span>
+                                </div>
+                            </div>
+                            <div class="fact-row">
+                                <span class="fact-icon">⚖️</span>
+                                <div class="fact-text">
+                                    <strong>Former Employer</strong>
+                                    <span>MGA Advisory Panel</span>
+                                </div>
+                            </div>
+                            <div class="fact-row">
+                                <span class="fact-icon">🎲</span>
+                                <div class="fact-text">
+                                    <strong>Favourite Game Type</strong>
+                                    <span>Poker &amp; Table Games</span>
+                                </div>
+                            </div>
+                            <div class="fact-row">
+                                <span class="fact-icon">🔍</span>
+                                <div class="fact-text">
+                                    <strong>Licences Verified in 2025</strong>
+                                    <span>38 casinos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" style="padding: 4rem 0 2rem;">
+        <div class="container">
+            <div class="footer-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <div class="footer-col">
+                    <h4 style="color: var(--background-white); margin-bottom: 1.5rem;">Top Casinos</h4>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li><a href="../../reviews/justbit-casino/index.html"
+                                style="color: #94A3B8; text-decoration: none;">JustBit Casino</a></li>
+                        <li><a href="../../reviews/22bet-casino/index.html"
+                                style="color: #94A3B8; text-decoration: none;">22Bet Casino</a></li>
+                        <li><a href="../../reviews/national-casino/index.html"
+                                style="color: #94A3B8; text-decoration: none;">National Casino</a></li>
+                        <li><a href="../../reviews/index.html"
+                                style="color: var(--primary-orange); text-decoration: none;">All Casino Reviews
+                                &rarr;</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 style="color: var(--background-white); margin-bottom: 1.5rem;">Quick Links</h4>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li><a href="../../about-us/index.html" style="color: #94A3B8; text-decoration: none;">About
+                                Us</a></li>
+                        <li><a href="../../crypto-casino/index.html"
+                                style="color: #94A3B8; text-decoration: none;">Crypto Casino No KYC</a></li>
+                        <li><a href="../../no-deposit-bonus/index.html"
+                                style="color: #94A3B8; text-decoration: none;">No Deposit Bonus</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"
+                style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; color: #94A3B8; font-size: 0.875rem;">
+                &copy; 2026 No-KYC Casino Reference. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="../../js/main.js"></script>
+</body>
+
+</html>
