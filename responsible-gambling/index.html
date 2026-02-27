@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en-IE">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsible Gambling | No-KYC Casino Reference Ireland</title>
+    <meta name="description"
+        content="Responsible gambling resources for Irish players — free helplines, self-assessment quiz, deposit limits, self-exclusion tools, parental controls and GamStop. Stay in control.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* ═══ PAGE LAYOUT ══════════════════════════════════════════ */
+        .rg-page {
+            background: var(--background-light);
+        }
+
+        .rg-hero {
+            padding: 4rem 0 5rem;
+            background:
+                radial-gradient(circle at top right, rgba(0, 163, 74, 0.08), transparent 50%),
+                radial-gradient(circle at bottom left, rgba(255, 90, 0, 0.05), transparent 50%),
+                linear-gradient(180deg, #fff 0%, var(--background-light) 100%);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .age-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #EF4444;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1rem;
+            padding: 0.4rem 1.1rem;
+            border-radius: var(--radius-full);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.04em;
+        }
+
+        .rg-hero h1 {
+            margin-bottom: 1rem;
+        }
+
+        .rg-hero p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.05rem;
+        }
+
+        /* ═══ SECTION WRAPPERS ═════════════════════════════════════ */
+        .rg-section {
+            padding: 4rem 0;
+        }
+
+        .rg-section.alt {
+            background: var(--background-white);
+        }
+
+        .rg-section.dark {
+            background: #0F172A;
+            color: #CBD5E1;
+        }
+
+        .rg-section.dark h2,
+        .rg-section.dark h3 {
+            color: #fff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header .pill {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.3rem 0.875rem;
+            border-radius: var(--radius-full);
+            margin-bottom: 0.75rem;
+        }
+
+        .pill-green {
+            background: rgba(0, 163, 74, .12);
+            color: var(--success-green);
+        }
+
+        .pill-orange {
+            background: rgba(255, 90, 0, .1);
+            color: var(--primary-orange);
+        }
+
+        .pill-red {
+            background: rgba(239, 68, 68, .1);
+            color: #EF4444;
+        }
+
+        .pill-indigo {
+            background: rgba(99, 102, 241, .1);
+            color: #6366f1;
+        }
+
+        .pill-blue {
+            background: rgba(14, 165, 233, .1);
+            color: #0EA5E9;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+            margin: 0 0 0.75rem;
+        }
+
+        .section-header p {
+            max-width: 580px;
+            margin: 0 auto;
+            color: var(--text-muted);
+        }
+
+        /* ═══ SELF-ASSESSMENT QUIZ ═════════════════════════════════ */
+        .quiz-wrap {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .quiz-card {
+            background: var(--background-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, .06);
+        }
+
+        .quiz-progress-bar-wrap {
+            background: var(--border-color);
+            border-radius: var(--radius-full);
+            height: 6px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .quiz-progress-bar {
+            height: 100%;
+            border-radius: var(--radius-full);
+            background: linear-gradient(90deg, var(--success-green), #00C65A);
+            transition: width 0.4s ease;
+            width: 0%;
+        }
+
+        .quiz-step {
+            display: none;
+        }
+
+        .quiz-step.active {
+            display: block;
+        }
+
+        .quiz-question-num {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-question-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        .quiz-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .quiz-btn {
+            flex: 1;
+            padding: 0.9rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .quiz-btn-yes {
+            background: rgba(239, 68, 68, .08);
+            color: #EF4444;
+            border-color: rgba(239, 68, 68, .3);
+        }
+
+        .quiz-btn-yes:hover {
+            background: #EF4444;
+            color: #fff;
+            border-color: #EF4444;
+        }
+
+        .quiz-btn-no {
+            background: rgba(0, 163, 74, .08);
+            color: var(--success-green);
+            border-color: rgba(0, 163, 74, .3);
+        }
+
+        .quiz-btn-no:hover {
+            background: var(--success-green);
+            color: #fff;
+            border-color: var(--success-green);
+        }
+
+        /* Result screens */
+        .quiz-result {
+            display: none;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 1rem 0 0;
+        }
+
+        .result-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .result-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .result-msg {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .result-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .result-link-item {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            background: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 0.875rem 1.25rem;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .result-link-item:hover {
+            border-color: var(--primary-orange);
+            box-shadow: 0 2px 8px rgba(255, 90, 0, .12);
+            color: var(--primary-orange);
+        }
+
+        .quiz-restart-btn {
+            margin-top: 1.75rem;
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            padding: 0.6rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+
+        .quiz-restart-btn:hover {
+            color: var(--text-main);
+            border-color: var(--text-muted);
+        }
+
+        /* ═══ TOOLBOX ═══════════════════════════════════════════════ */
+        .toolbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tool-card {
+            background: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: 2rem 1.75rem;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+            border-color: rgba(255, 90, 0, .25);
+        }
+
+        .tool-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .tool-card h3 {
+            font-size: 1.1rem;
+            margin: 0 0 0.5rem;
+        }
+
+        .tool-card p {
+            font-size: 0.9rem;
+            margin: 0 0 1rem;
+        }
+
+        .tool-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.65rem;
+            border-radius: var(--radius-full);
+            background: rgba(255, 90, 0, .1);
+            color: var(--primary-orange);
+            border: 1px solid rgba(255, 90, 0, .2);
+        }
+
+        /* ═══ HELPLINES ════════════════════════════════════════════ */
+        .helplines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .helpline-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .helpline-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(0, 163, 74, .5);
+        }
+
+        .helpline-org {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.25rem;
+        }
+
+        .helpline-desc {
+            font-size: 0.875rem;
+            color: #94A3B8;
+            margin-bottom: 1.25rem;
+        }
+
+        .helpline-phone {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #4ADE80;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: opacity 0.2s;
+        }
+
+        .helpline-phone:hover {
+            opacity: 0.8;
+        }
+
+        .helpline-web {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.825rem;
+            color: #64748B;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .helpline-web:hover {
+            color: #94A3B8;
+        }
+
+        .helpline-hours {
+            font-size: 0.8rem;
+            color: #475569;
+            margin-top: 0.5rem;
+        }
+
+        /* ═══ SAFE PLAY TIPS ═══════════════════════════════════════ */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tip-card {
+            background: var(--background-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .07);
+        }
+
+        .tip-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--success-green), #00C65A);
+        }
+
+        .tip-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--border-color);
+            line-height: 1;
+            margin-bottom: 0.75rem;
+        }
+
+        .tip-card h3 {
+            font-size: 1rem;
+            margin: 0 0 0.5rem;
+        }
+
+        .tip-card p {
+            font-size: 0.9rem;
+            margin: 0;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        /* ═══ MYTH vs REALITY ══════════════════════════════════════ */
+        .myth-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .myth-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
+        }
+
+        .myth-col {
+            padding: 1.5rem 1.75rem;
+        }
+
+        .myth-col.myth {
+            background: rgba(239, 68, 68, .05);
+            border-right: 1px solid var(--border-color);
+        }
+
+        .myth-col.reality {
+            background: rgba(0, 163, 74, .05);
+        }
+
+        .myth-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+        }
+
+        .myth-label.m {
+            color: #EF4444;
+        }
+
+        .myth-label.r {
+            color: var(--success-green);
+        }
+
+        .myth-col p {
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ═══ PARENTAL CONTROLS ════════════════════════════════════ */
+        .parental-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .parental-card {
+            background: var(--background-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .parental-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+        }
+
+        .parental-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .parental-card h3 {
+            font-size: 1.1rem;
+            margin: 0 0 0.5rem;
+        }
+
+        .parental-card p {
+            font-size: 0.875rem;
+            margin: 0 0 1.25rem;
+        }
+
+        .parental-card a.btn-sm {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--primary-orange);
+            color: var(--primary-orange);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .parental-card a.btn-sm:hover {
+            background: var(--primary-orange);
+            color: #fff;
+        }
+
+        /* ═══ GAMSTOP BANNER ═══════════════════════════════════════ */
+        .gamstop-banner {
+            background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            border: 1px solid rgba(255, 255, 255, .08);
+            margin-top: 2rem;
+        }
+
+        .gamstop-banner-icon {
+            font-size: 3.5rem;
+            flex-shrink: 0;
+        }
+
+        .gamstop-banner h3 {
+            color: #fff;
+            margin: 0 0 0.35rem;
+        }
+
+        .gamstop-banner p {
+            margin: 0 0 1rem;
+            color: #94A3B8;
+            font-size: 0.95rem;
+        }
+
+        /* ═══ RESPONSIVE ════════════════════════════════════════════ */
+        @media (max-width: 640px) {
+            .myth-item {
+                grid-template-columns: 1fr;
+            }
+
+            .myth-col.myth {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .quiz-btns {
+                flex-direction: column;
+            }
+
+            .gamstop-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body class="rg-page">
+    <header class="site-header" style="position: static;">
+        <div class="container justify-between flex items-center" style="width: 100%;">
+            <a href="../index.html" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+                <img src="../images/logo.webp" alt="Site Logo" class="header-logo" onerror="this.style.display='none'">
+                <span class="logo-text">No-KYC<span>Casino</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="../crypto-casino/index.html">Crypto Casino No KYC</a>
+                <a href="../no-deposit-bonus/index.html">No Deposit Bonus</a>
+                <a href="../free-spins/index.html">Free Spins</a>
+                <a href="../instant-withdrawal/index.html">Instant Withdrawal</a>
+            </nav>
+            <a href="../index.html#showcase" class="btn btn-primary">Best No-KYC Casinos</a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ── HERO ─────────────────────────────────────────── -->
+        <section class="rg-hero">
+            <div class="container">
+                <div class="breadcrumbs" style="justify-content: center; display: flex; margin-bottom: 1.5rem;">
+                    <a href="../index.html">Home</a> &nbsp;&rsaquo;&nbsp; <span>Responsible Gambling</span>
+                </div>
+                <span class="age-badge">🔞 18+ Only</span>
+                <h1>Responsible Gambling</h1>
+                <p>Gambling should be fun, not stressful. This page gives you the tools, tests, and contacts you need to
+                    stay in control — or get help if things have gone too far.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#self-check" class="btn btn-primary">Take the Self-Check Quiz</a>
+                    <a href="#helplines" class="btn btn-secondary">Get Help Now →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SELF-ASSESSMENT QUIZ ─────────────────────────── -->
+        <section class="rg-section alt" id="self-check">
+            <div class="container">
+                <div class="section-header">
+                    <span class="pill pill-orange">Know Yourself</span>
+                    <h2>Quick Self-Assessment</h2>
+                    <p>Answer 7 honest questions. It takes under 2 minutes — and could be the most important 2 minutes
+                        you spend today.</p>
+                </div>
+                <div class="quiz-wrap">
+                    <div class="quiz-card">
+                        <div class="quiz-progress-bar-wrap">
+                            <div class="quiz-progress-bar" id="quizProgress"></div>
+                        </div>
+
+                        <!-- Q1 -->
+                        <div class="quiz-step active" data-q="1">
+                            <div class="quiz-question-num">Question 1 of 7</div>
+                            <div class="quiz-question-text">Do you spend more time or money gambling than you originally
+                                planned?</div>
+                            <div class="quiz-btns">
+                                <button class="quiz-btn quiz-btn-yes" onclick="quizAnswer(true)">👍 Yes,
+                                    sometimes</button>
+                                <button class="quiz-btn quiz-btn-no" onclick="quizAnswer(false)">✋ No, I stick to
+                                    limits</button>
+                            </div>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="quiz-step" data-q="2">
+                            <div class="quiz-question-num">Question 2 of 7</div>
+                            <div class="quiz-question-text">Have you ever gambled to try to win back money you had
+                                already lost ("chasing losses")?</div>
+                            <div class="quiz-btns">
+                                <button class="quiz-btn quiz-btn-yes" onclick="quizAnswer(true)">👍 Yes</button>
+                                <button class="quiz-btn quiz-btn-no" onclick="quizAnswer(false)">✋ No</button>
+                            </div>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="quiz-step" data-q="3">
+                            <div class="quiz-question-num">Question 3 of 7</div>
+                            <div class="quiz-question-text">Do you feel restless, irritable or anxious when you try to
+                                cut down or stop gambling?</div>
+                            <div class="quiz-btns">
+                                <button class="quiz-btn quiz-btn-yes" onclick="quizAnswer(true)">👍 Yes, I get
+                                    edgy</button>
+                                <button class="quiz-btn quiz-btn-no" onclick="quizAnswer(false)">✋ Not really</button>
+                            </div>
+                        </div>
+
+                        <!-- Q4 -->
+                        <div class="quiz-step" data-q="4">
+                            <div class="quiz-question-num">Question 4 of 7</div>
+                            <div class="quiz-question-text">Have you kept your gambling a secret from family or friends,
+                                or lied about how much you gamble?</div>
+                            <div class="quiz-btns">
+                                <button class="quiz-btn quiz-btn-yes" onclick="quizAnswer(true)">👍 Yes, I have</button>
+                                <button class="quiz-btn quiz-btn-no" onclick="quizAnswer(false)">✋ No, I'm open about
+                                    it</button>
+                            </div>
+                        </div>
+
+                        <!-- Q5 -->
+                        <div class="quiz-step" data-q="5">
+                            <div class="quiz-question-num">Question 5 of 7</div>
+                            <div class="quiz-question-text">Have you ever borrowed money or sold something to fund
+                                gambling?</div>
+                            <div class="quiz-btns">
+                                <button class="quiz-btn quiz-btn-yes" onclick="quizAnswer(true)">👍 Yes</button>
+                                <button class="quiz-btn quiz-btn-no" onclick="quizAnswer(false)">✋ No, never</button>
+                            </div>
+                        </div>
+
+                        <!-- Q6 -->
+                        <div class="quiz-step" data-q="6">
+                            <div class="quiz-question-num">Question 6 of 7</div>
+                            <div class="quiz-question-text">Has gambling ever caused problems in your relationships,
+                                job, or finances?</div>
+                            <div class="quiz-btns">
+                                <button class="quiz-btn quiz-btn-yes" onclick="quizAnswer(true)">👍 Yes, it has</button>
+                                <button class="quiz-btn quiz-btn-no" onclick="quizAnswer(false)">✋ No problems</button>
+                            </div>
+                        </div>
+
+                        <!-- Q7 -->
+                        <div class="quiz-step" data-q="7">
+                            <div class="quiz-question-num">Question 7 of 7</div>
+                            <div class="quiz-question-text">Do you gamble to escape stress, anxiety, depression or other
+                                personal problems?</div>
+                            <div class="quiz-btns">
+                                <button class="quiz-btn quiz-btn-yes" onclick="quizAnswer(true)">👍 Yes, it helps me
+                                    escape</button>
+                                <button class="quiz-btn quiz-btn-no" onclick="quizAnswer(false)">✋ No, it's pure
+                                    entertainment</button>
+                            </div>
+                        </div>
+
+                        <!-- Results -->
+                        <div class="quiz-result" id="result-low">
+                            <div class="result-card">
+                                <span class="result-icon">🟢</span>
+                                <div class="result-title" style="color: var(--success-green);">You Appear to Be in
+                                    Control</div>
+                                <p class="result-msg">Your responses suggest your gambling habits are currently healthy.
+                                    Keep it that way by using deposit limits and budgeting your play sessions.</p>
+                                <div class="result-links">
+                                    <a href="#toolbox" class="result-link-item">🛠️ Explore our Responsible Gambling
+                                        Toolbox</a>
+                                    <a href="#safe-play" class="result-link-item">💡 Read our Safe Play Tips</a>
+                                </div>
+                            </div>
+                            <div style="text-align: center;">
+                                <button class="quiz-restart-btn" onclick="resetQuiz()">↺ Retake the Quiz</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-result" id="result-medium">
+                            <div class="result-card">
+                                <span class="result-icon">🟡</span>
+                                <div class="result-title" style="color: #F59E0B;">Some Warning Signs Detected</div>
+                                <p class="result-msg">You've flagged a few areas worth watching. This doesn't mean you
+                                    have a problem — but it's a good idea to set some firm limits right now, before
+                                    habits become harder to break.</p>
+                                <div class="result-links">
+                                    <a href="#toolbox" class="result-link-item">⏱️ Set a Time-Out or Deposit Limit
+                                        today</a>
+                                    <a href="https://www.begambleaware.org/" target="_blank" rel="noopener noreferrer"
+                                        class="result-link-item">🌐 BeGambleAware — self-help resources</a>
+                                    <a href="#helplines" class="result-link-item">📞 Irish gambling helplines (free
+                                        &amp; confidential)</a>
+                                </div>
+                            </div>
+                            <div style="text-align: center;">
+                                <button class="quiz-restart-btn" onclick="resetQuiz()">↺ Retake the Quiz</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-result" id="result-high">
+                            <div class="result-card">
+                                <span class="result-icon">🔴</span>
+                                <div class="result-title" style="color: #EF4444;">Please Reach Out for Support</div>
+                                <p class="result-msg">Your answers suggest gambling may be causing you harm. You don't
+                                    have to deal with this alone — trained counsellors are available right now, for
+                                    free, in complete confidence.</p>
+                                <div class="result-links">
+                                    <a href="https://www.problem-gambling.ie/" target="_blank" rel="noopener noreferrer"
+                                        class="result-link-item">📞 Extern Problem Gambling — Freephone 1800 936 725</a>
+                                    <a href="https://www.gamblersanonymous.ie/" target="_blank"
+                                        rel="noopener noreferrer" class="result-link-item">🤝 Gamblers Anonymous Ireland
+                                        — peer support meetings</a>
+                                    <a href="https://www.gamstop.co.uk/" target="_blank" rel="noopener noreferrer"
+                                        class="result-link-item">🛡️ GamStop — self-exclude from all UK-licensed
+                                        casinos</a>
+                                    <a href="https://gamblingcare.ie/" target="_blank" rel="noopener noreferrer"
+                                        class="result-link-item">💬 GamblingCare.ie — free counselling &amp; support</a>
+                                </div>
+                            </div>
+                            <div style="text-align: center;">
+                                <button class="quiz-restart-btn" onclick="resetQuiz()">↺ Retake the Quiz</button>
+                            </div>
+                        </div>
+
+                    </div><!-- /.quiz-card -->
+                </div><!-- /.quiz-wrap -->
+            </div>
+        </section>
+
+        <!-- ── TOOLBOX ───────────────────────────────────────── -->
+        <section class="rg-section" id="toolbox">
+            <div class="container">
+                <div class="section-header">
+                    <span class="pill pill-green">Stay in Control</span>
+                    <h2>The Responsible Gambling Toolbox</h2>
+                    <p>Every reputable casino we recommend offers these tools. Use them — they exist for a reason.</p>
+                </div>
+                <div class="toolbox-grid">
+                    <div class="tool-card">
+                        <span class="tool-icon">💰</span>
+                        <h3>Deposit Limits</h3>
+                        <p>Set a daily, weekly, or monthly cap on how much you can deposit. Reduces are instant;
+                            increases usually require a 24-hour cooling-off period.</p>
+                        <span class="tool-badge">Daily / Weekly / Monthly</span>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">⏱️</span>
+                        <h3>Time-Out</h3>
+                        <p>Take a short break from gambling — from 24 hours up to 6 weeks. Your account is temporarily
+                            suspended but preserved. Set one before you need one.</p>
+                        <span class="tool-badge">24 hrs — 6 weeks</span>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🔒</span>
+                        <h3>Self-Exclusion</h3>
+                        <p>Permanently or long-term block your account. Periods range from 6 months to 5 years. Cannot
+                            be reversed during the active period — by design.</p>
+                        <span class="tool-badge">6 months — 5 years</span>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">⏰</span>
+                        <h3>Reality Check</h3>
+                        <p>A pop-up reminder that appears at intervals you choose (e.g. every 30 minutes) to tell you
+                            how long you've been playing and how much you've spent.</p>
+                        <span class="tool-badge">Every 30 / 60 / 90 mins</span>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">📊</span>
+                        <h3>Loss Limits</h3>
+                        <p>Cap how much you can lose in a session, day, or week. When reached, you're automatically
+                            logged out until the limit period resets.</p>
+                        <span class="tool-badge">Session / Daily / Weekly</span>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-icon">🕹️</span>
+                        <h3>Session Limits</h3>
+                        <p>Restrict how long each gaming session can last. A countdown timer reminds you how much of
+                            your allocated time remains before automatic logout.</p>
+                        <span class="tool-badge">30 min — 8 hrs</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── HELPLINES ─────────────────────────────────────── -->
+        <section class="rg-section dark" id="helplines">
+            <div class="container">
+                <div class="section-header">
+                    <span class="pill pill-blue">Free &amp; Confidential</span>
+                    <h2>Irish Gambling Help Contacts</h2>
+                    <p>All of the services below are free, run by trained professionals, and completely confidential.
+                        Reaching out is not weakness — it's the smartest move you can make.</p>
+                </div>
+                <div class="helplines-grid">
+                    <div class="helpline-card">
+                        <div class="helpline-org">GamStop</div>
+                        <div class="helpline-desc">National self-exclusion scheme for UK/EU-licensed online gambling
+                            websites. Register once to block access across all participating sites.</div>
+                        <a href="tel:08088020133" class="helpline-phone">📞 0808 8020 133</a>
+                        <div class="helpline-hours">Mon–Fri 8am–midnight | Sat–Sun 8am–8pm</div>
+                        <a href="https://www.gamstop.co.uk/" target="_blank" rel="noopener noreferrer"
+                            class="helpline-web">🌐 gamstop.co.uk ↗</a>
+                    </div>
+
+                    <div class="helpline-card">
+                        <div class="helpline-org">GamblingCare.ie</div>
+                        <div class="helpline-desc">Ireland's dedicated gambling support service — free one-to-one
+                            counselling, online chat, and family support for those affected by problem gambling.</div>
+                        <a href="tel:1800936725" class="helpline-phone">📞 Freephone 1800 753 444</a>
+                        <div class="helpline-hours">Live Chat available Mon–Fri 9am–5pm</div>
+                        <a href="https://gamblingcare.ie/" target="_blank" rel="noopener noreferrer"
+                            class="helpline-web">🌐 gamblingcare.ie ↗</a>
+                    </div>
+
+                    <div class="helpline-card">
+                        <div class="helpline-org">Extern Problem Gambling</div>
+                        <div class="helpline-desc">Northern Ireland's specialist problem gambling service, providing
+                            one-to-one support, cognitive behavioural therapy, and family counselling.</div>
+                        <a href="tel:1800936725" class="helpline-phone">📞 Freephone 1800 936 725</a>
+                        <div class="helpline-hours">Mon–Fri 9am–5pm | Emergency referrals available</div>
+                        <a href="https://www.problem-gambling.ie/" target="_blank" rel="noopener noreferrer"
+                            class="helpline-web">🌐 problem-gambling.ie ↗</a>
+                    </div>
+
+                    <div class="helpline-card">
+                        <div class="helpline-org">Gamblers Anonymous Ireland</div>
+                        <div class="helpline-desc">Peer-support meetings across Ireland. If you have a desire to stop
+                            gambling, GA welcomes you — no fees, no lectures, no judgements.</div>
+                        <a href="tel:0879070710" class="helpline-phone">📞 087 907 0710</a>
+                        <div class="helpline-hours">Meetings held daily across Dublin, Cork &amp; Galway</div>
+                        <a href="https://www.gamblersanonymous.ie/" target="_blank" rel="noopener noreferrer"
+                            class="helpline-web">🌐 gamblersanonymous.ie ↗</a>
+                    </div>
+
+                    <div class="helpline-card">
+                        <div class="helpline-org">Samaritans Ireland</div>
+                        <div class="helpline-desc">If gambling is affecting your mental health and you need someone to
+                            talk to — any hour of any day — Samaritans is there, with no judgement.</div>
+                        <a href="tel:116123" class="helpline-phone">📞 116 123</a>
+                        <div class="helpline-hours">24 hours a day, 7 days a week — free call</div>
+                        <a href="https://www.samaritans.org/ireland/" target="_blank" rel="noopener noreferrer"
+                            class="helpline-web">🌐 samaritans.org/ireland ↗</a>
+                    </div>
+
+                    <div class="helpline-card">
+                        <div class="helpline-org">BeGambleAware</div>
+                        <div class="helpline-desc">The National Gambling Helpline — calls and live chat are
+                            confidential. Also offers an online self-help programme for those who prefer to work
+                            independently.</div>
+                        <a href="tel:08088020133" class="helpline-phone">📞 0808 8020 133</a>
+                        <div class="helpline-hours">24/7 helpline | Live chat available</div>
+                        <a href="https://www.begambleaware.org/" target="_blank" rel="noopener noreferrer"
+                            class="helpline-web">🌐 begambleaware.org ↗</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SAFE PLAY TIPS ─────────────────────────────────── -->
+        <section class="rg-section alt" id="safe-play">
+            <div class="container">
+                <div class="section-header">
+                    <span class="pill pill-green">Play Smart</span>
+                    <h2>Safe Play Tips — Written Like a Human</h2>
+                    <p>No legalese. No lectures. Just honest advice from people who've reviewed hundreds of casinos.</p>
+                </div>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-number">01</div>
+                        <h3>Treat it as an entertainment expense</h3>
+                        <p>"Treat gambling as a night at the cinema — tickets cost money and you don't expect a refund
+                            when the film ends. Budget accordingly."</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-number">02</div>
+                        <h3>Set your budget before you open the casino</h3>
+                        <p>"Decide on your session budget before you log in, not during — it's impossible to think
+                            clearly when you're mid-spin and on a hot streak."</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-number">03</div>
+                        <h3>The house always has an edge — always</h3>
+                        <p>"Over a large enough number of spins, the casino will profit. You can win, but you can't beat
+                            the maths long-term. Play for the thrill, not the pension."</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-number">04</div>
+                        <h3>Never chase losses — walk away</h3>
+                        <p>"Every bet you place to 'get even' is an emotional bet, not a rational one. The casino loves
+                            emotional bettors. Be the rational one."</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-number">05</div>
+                        <h3>Don't gamble when drunk or stressed</h3>
+                        <p>"Your worst financial decisions happen when your judgement is impaired. Tired, drunk, or
+                            anxious? Log out. The casino will still be there tomorrow."</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-number">06</div>
+                        <h3>Wins feel bigger than they are — keep records</h3>
+                        <p>"We remember our wins vividly and forget our losses. Keep a simple spreadsheet for a month —
+                            the real picture is rarely as rosy as it feels."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── MYTH vs REALITY ───────────────────────────────── -->
+        <section class="rg-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="pill pill-indigo">Know the Facts</span>
+                    <h2>Gambling Myths vs. Reality</h2>
+                    <p>Casinos profit from these misconceptions. Knowing the truth puts you in control.</p>
+                </div>
+                <div class="myth-list">
+
+                    <div class="myth-item">
+                        <div class="myth-col myth">
+                            <div class="myth-label m">❌ Myth</div>
+                            <p>"If a slot hasn't paid out in a while, it's <em>due</em> for a big win soon."</p>
+                        </div>
+                        <div class="myth-col reality">
+                            <div class="myth-label r">✅ Reality</div>
+                            <p>Every spin is generated independently by an RNG (Random Number Generator). The machine
+                                has no memory. A 1,000-spin dry run doesn't change the odds of the next spin one bit.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="myth-item">
+                        <div class="myth-col myth">
+                            <div class="myth-label m">❌ Myth</div>
+                            <p>"I can develop a winning system by studying patterns and timing my bets."</p>
+                        </div>
+                        <div class="myth-col reality">
+                            <div class="myth-label r">✅ Reality</div>
+                            <p>Betting systems (Martingale, Fibonacci, etc.) can temporarily manage variance, but they
+                                cannot overcome the house edge. The maths eventually wins — always.</p>
+                        </div>
+                    </div>
+
+                    <div class="myth-item">
+                        <div class="myth-col myth">
+                            <div class="myth-label m">❌ Myth</div>
+                            <p>"Only weak people develop gambling problems. I can stop whenever I want."</p>
+                        </div>
+                        <div class="myth-col reality">
+                            <div class="myth-label r">✅ Reality</div>
+                            <p>Gambling disorder is a recognised medical condition. Casinos are engineered specifically
+                                to maximise engagement. Struggling is not a character flaw — it's a known response to
+                                powerful psychological triggers.</p>
+                        </div>
+                    </div>
+
+                    <div class="myth-item">
+                        <div class="myth-col myth">
+                            <div class="myth-label m">❌ Myth</div>
+                            <p>"The casino lets you win big early to hook you — so now it's my turn to cash out."</p>
+                        </div>
+                        <div class="myth-col reality">
+                            <div class="myth-label r">✅ Reality</div>
+                            <p>Early wins are random, not engineered. But they <em>are</em> one of the most effective
+                                hooks in casino psychology — winners double their bets, lose it back, and keep playing.
+                                Cash out when you're ahead.</p>
+                        </div>
+                    </div>
+
+                    <div class="myth-item">
+                        <div class="myth-col myth">
+                            <div class="myth-label m">❌ Myth</div>
+                            <p>"No-KYC casinos are unregulated and rigged — I can't trust my winnings."</p>
+                        </div>
+                        <div class="myth-col reality">
+                            <div class="myth-label r">✅ Reality</div>
+                            <p>Many no-KYC casinos hold legitimate Curaçao, MGA, or Kahnawake licences and use
+                                provably-fair or independently-audited RNG software. Our reviews verify this before any
+                                casino is listed here.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ── PARENTAL CONTROLS ──────────────────────────────── -->
+        <section class="rg-section alt" id="under18">
+            <div class="container">
+                <div class="section-header">
+                    <span class="pill pill-red">🔞 Child Protection</span>
+                    <h2>Keeping Minors Safe Online</h2>
+                    <p>Gambling is strictly for adults aged 18 and over. If you share a device with children, please use
+                        parental control software.</p>
+                </div>
+
+                <div class="parental-grid">
+                    <div class="parental-card">
+                        <span class="parental-icon">🛡️</span>
+                        <h3>GamBlock</h3>
+                        <p>Specialised software that blocks access to gambling websites and apps across all devices,
+                            including mobile. Trusted by families and therapists worldwide.</p>
+                        <a href="https://www.gamblock.com/" target="_blank" rel="noopener noreferrer"
+                            class="btn-sm">Visit GamBlock ↗</a>
+                    </div>
+                    <div class="parental-card">
+                        <span class="parental-icon">👨‍👧</span>
+                        <h3>Net Nanny</h3>
+                        <p>Comprehensive parental control software that can block gambling categories across browsers
+                            and apps. Supports multiple devices and user profiles.</p>
+                        <a href="https://www.netnanny.com/" target="_blank" rel="noopener noreferrer"
+                            class="btn-sm">Visit Net Nanny ↗</a>
+                    </div>
+                    <div class="parental-card">
+                        <span class="parental-icon">🔐</span>
+                        <h3>Betfilter</h3>
+                        <p>Irish-friendly gambling blocking software. Works on desktop and mobile, blocks thousands of
+                            gambling sites, and cannot be removed without a PIN.</p>
+                        <a href="https://www.betfilter.com/" target="_blank" rel="noopener noreferrer"
+                            class="btn-sm">Visit Betfilter ↗</a>
+                    </div>
+                    <div class="parental-card">
+                        <span class="parental-icon">📱</span>
+                        <h3>Google Family Link</h3>
+                        <p>Free parental control tool from Google. Manage your child's device, app access, and screen
+                            time. Works across Android and Chromebook devices.</p>
+                        <a href="https://families.google.com/familylink/" target="_blank" rel="noopener noreferrer"
+                            class="btn-sm">Visit Family Link ↗</a>
+                    </div>
+                </div>
+
+                <div class="gamstop-banner">
+                    <span class="gamstop-banner-icon">🛑</span>
+                    <div>
+                        <h3>Register with GamStop — It's Free &amp; Takes 5 Minutes</h3>
+                        <p>GamStop lets you self-exclude from all UK-licensed and many EU-licensed gambling sites
+                            simultaneously. One registration, site-wide protection. It is irreversible for the duration
+                            you choose — from 6 months to 5 years.</p>
+                        <a href="https://www.gamstop.co.uk/" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-primary">Register with GamStop →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── COMMITMENT FOOTER ──────────────────────────────── -->
+        <section
+            style="padding: 3rem 0; background: var(--background-white); border-top: 1px solid var(--border-color);">
+            <div class="container" style="max-width: 700px; text-align: center;">
+                <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.8; margin: 0;">
+                    <strong style="color: var(--text-main);">Our Commitment:</strong> No-KYC Casino Reference only
+                    recommends casinos that provide all of the responsible gambling tools listed on this page. We do not
+                    list any casino that does not allow voluntary self-exclusion or deposit limits. If you believe a
+                    listed casino is not honouring its responsible gambling commitments, please <a
+                        href="mailto:contact@no-kyc-casino.eu.com" style="color: var(--primary-orange);">contact us</a>
+                    immediately.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" style="padding: 4rem 0 2rem;">
+        <div class="container">
+            <div class="footer-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <div class="footer-col">
+                    <h4 style="color: var(--background-white); margin-bottom: 1.5rem;">Top Casinos</h4>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li><a href="../reviews/justbit-casino/index.html"
+                                style="color: #94A3B8; text-decoration: none;">JustBit Casino</a></li>
+                        <li><a href="../reviews/22bet-casino/index.html"
+                                style="color: #94A3B8; text-decoration: none;">22Bet Casino</a></li>
+                        <li><a href="../reviews/national-casino/index.html"
+                                style="color: #94A3B8; text-decoration: none;">National Casino</a></li>
+                        <li><a href="../reviews/index.html"
+                                style="color: var(--primary-orange); text-decoration: none;">All Casino Reviews
+                                &rarr;</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 style="color: var(--background-white); margin-bottom: 1.5rem;">Quick Links</h4>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li><a href="../crypto-casino/index.html" style="color: #94A3B8; text-decoration: none;">Crypto
+                                Casino No KYC</a></li>
+                        <li><a href="../no-deposit-bonus/index.html" style="color: #94A3B8; text-decoration: none;">No
+                                Deposit Bonus</a></li>
+                        <li><a href="../free-spins/index.html" style="color: #94A3B8; text-decoration: none;">Free
+                                Spins</a></li>
+                        <li><a href="../instant-withdrawal/index.html"
+                                style="color: #94A3B8; text-decoration: none;">Instant Withdrawal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 style="color: var(--background-white); margin-bottom: 1.5rem;">Company</h4>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <li><a href="../about-us/index.html" style="color: #94A3B8; text-decoration: none;">About Us</a>
+                        </li>
+                        <li><a href="../responsible-gambling/index.html"
+                                style="color: var(--primary-orange); text-decoration: none;">Responsible Gambling</a>
+                        </li>
+                        <li><a href="#" style="color: #94A3B8; text-decoration: none;">Terms of Service</a></li>
+                        <li><a href="#" style="color: #94A3B8; text-decoration: none;">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid rgba(255,255,255,.1); padding-top: 2rem; text-align: center; color: #94A3B8; font-size: 0.875rem;">
+                &copy; 2026 No-KYC Casino Reference. All rights reserved. | 🔞 18+ | Play Responsibly | <a
+                    href="https://www.begambleaware.org/" target="_blank" rel="noopener noreferrer"
+                    style="color: #64748B;">BeGambleAware</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // ─── Self-Assessment Quiz Logic ──────────────────────────
+        let currentStep = 1;
+        const totalSteps = 7;
+        let yesCount = 0;
+
+        function quizAnswer(isYes) {
+            if (isYes) yesCount++;
+
+            // Update progress
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('quizProgress').style.width = progress + '%';
+
+            if (currentStep < totalSteps) {
+                // Hide current step
+                document.querySelector(`.quiz-step[data-q="${currentStep}"]`).classList.remove('active');
+                currentStep++;
+                // Show next step
+                document.querySelector(`.quiz-step[data-q="${currentStep}"]`).classList.add('active');
+            } else {
+                // Last question answered — show result
+                document.getElementById('quizProgress').style.width = '100%';
+                document.querySelector(`.quiz-step[data-q="${currentStep}"]`).classList.remove('active');
+
+                // Hide all quiz-step elements first
+                document.querySelectorAll('.quiz-step').forEach(el => el.style.display = 'none');
+
+                let resultId;
+                if (yesCount <= 1) {
+                    resultId = 'result-low';
+                } else if (yesCount <= 3) {
+                    resultId = 'result-medium';
+                } else {
+                    resultId = 'result-high';
+                }
+                document.getElementById(resultId).style.display = 'block';
+            }
+        }
+
+        function resetQuiz() {
+            currentStep = 1;
+            yesCount = 0;
+            document.getElementById('quizProgress').style.width = '0%';
+
+            // Hide all results
+            document.querySelectorAll('.quiz-result').forEach(el => el.style.display = 'none');
+
+            // Re-show + reset all steps
+            document.querySelectorAll('.quiz-step').forEach(el => {
+                el.style.display = '';
+                el.classList.remove('active');
+            });
+
+            // Activate first step
+            document.querySelector('.quiz-step[data-q="1"]').classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
